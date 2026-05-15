@@ -1,0 +1,270 @@
+/* Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    background: radial-gradient(circle at 20% 30%, #fff0f5 0%, #fff7e8 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.8rem;
+    position: relative;
+    flex-direction: column;
+}
+
+/* Pontinhos de fundo delicados */
+body::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(#fbd5e8 1px, transparent 1px);
+    background-size: 28px 28px;
+    opacity: 0.3;
+    pointer-events: none;
+}
+
+/* Barra de créditos no topo */
+.credits-top {
+    text-align: center;
+    margin-bottom: 0.7rem;
+    font-size: 0.7rem;
+    background: rgba(255, 252, 245, 0.85);
+    backdrop-filter: blur(4px);
+    padding: 5px 14px;
+    border-radius: 60px;
+    display: inline-block;
+    color: #d99bbe;
+    border: 1px solid rgba(255, 200, 180, 0.5);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.credits-top strong {
+    color: #e289b5;
+    font-weight: 600;
+}
+
+/* Container Principal */
+.container {
+    background: rgba(255, 252, 248, 0.96);
+    backdrop-filter: blur(2px);
+    border-radius: 32px;
+    box-shadow: 0 20px 35px rgba(245, 160, 201, 0.12);
+    padding: 1.5rem;
+    text-align: center;
+    width: 100%;
+    max-width: 420px;
+    border: 1px solid rgba(255, 225, 200, 0.7);
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.6rem;
+    color: #d9a1c2;
+    margin-bottom: 1rem;
+}
+
+h1 span {
+    background: linear-gradient(120deg, #f3ba6a, #f5a5cc);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: 600;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- ESTILO TELA INICIAL --- */
+#nickname-input {
+    width: 100%;
+    padding: 12px 18px;
+    border: 1.5px solid #ffe0cc;
+    border-radius: 56px;
+    font-size: 0.9rem;
+    background: #fff;
+    text-align: center;
+    color: #bc7e9e;
+    outline: none;
+    transition: 0.25s;
+}
+
+#nickname-input:focus {
+    border-color: #f2adce;
+    box-shadow: 0 0 0 4px rgba(242, 173, 206, 0.12);
+}
+
+.difficulty-selection {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 1.2rem 0;
+}
+
+.difficulty-selection input { display: none; }
+
+.difficulty-selection span {
+    display: inline-block;
+    padding: 8px 18px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border-radius: 50px;
+    background: #fff;
+    border: 1.5px solid #ffe0cc;
+    color: #d99bbe;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.difficulty-selection input:checked + span {
+    background: linear-gradient(120deg, #f3ba6a, #f5a5cc);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 10px rgba(245, 165, 204, 0.3);
+    transform: scale(1.05);
+}
+
+/* --- ESTILO CABEÇALHO DO JOGO (TAGS) --- */
+.header-tags {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.player-tag, .level-tag {
+    padding: 0.3rem 0.9rem;
+    border-radius: 100px;
+    font-size: 0.75rem;
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid #ffe0cf;
+}
+
+.player-tag { background: rgba(253, 241, 230, 0.8); color: #db94bb; }
+.level-tag { background: #fffcf0; color: #f3ba6a; font-weight: 600; text-transform: uppercase; border-color: #fde7cc; }
+.tag-dot { width: 7px; height: 7px; background: #f5aacd; border-radius: 50%; margin-right: 6px; }
+
+/* --- ÁREA DAS PALAVRAS --- */
+.tip-container {
+    background: #fff5e8;
+    border-radius: 60px;
+    padding: 6px 15px;
+    margin-bottom: 1rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #ffe0cc;
+}
+
+.tip-text { font-size: 0.7rem; color: #c282aa; font-style: italic; }
+
+.word-slots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+}
+
+.letter-slot {
+    width: 44px;
+    height: 54px;
+    background: #fffdf9;
+    border-radius: 16px;
+    border-bottom: 3px solid #fad19e;
+    font-size: 1.6rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e88eb9;
+    font-family: 'Playfair Display', serif;
+}
+
+/* --- ÁREA DO INPUT (?) --- */
+.letter-crystal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 1.5rem 0;
+}
+
+#letter-input {
+    width: 65px;
+    height: 65px;
+    text-align: center;
+    font-size: 2.2rem;
+    border: 2px solid #ffe3ce;
+    border-radius: 22px;
+    color: #f0a1c4;
+    outline: none;
+    background: #fffefb;
+    box-shadow: 0 5px 0 #ffefdb;
+    font-family: 'Playfair Display', serif;
+}
+
+.letter-label {
+    display: block;
+    font-size: 0.65rem;
+    margin-top: 10px;
+    color: #e2b2ce;
+    font-weight: 500;
+}
+
+/* --- PAINEL DE FEEDBACK --- */
+.info-panel {
+    background: rgba(255, 248, 240, 0.7);
+    border-radius: 26px;
+    padding: 0.8rem;
+    margin-top: 1rem;
+}
+
+.error-meter {
+    color: #d48bb2;
+    font-size: 0.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.message-bubble {
+    font-size: 0.75rem;
+    color: #bf85a8;
+    background: white;
+    padding: 6px 15px;
+    border-radius: 20px;
+    margin-top: 8px;
+    display: inline-block;
+    border: 1px solid #fff1f5;
+}
+
+/* --- BOTÕES E DICAS --- */
+.reset-btn {
+    background: linear-gradient(105deg, #fddfb5, #fbd3e8);
+    border: none;
+    padding: 12px 25px;
+    border-radius: 40px;
+    color: #b96f95;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: 0.2s;
+}
+
+.reset-btn:hover { transform: translateY(-2px); }
+
+.hint-press {
+    font-size: 0.65rem;
+    color: #e0b0cc;
+    margin-top: 15px;
+}
